@@ -66,7 +66,9 @@ struct ContentView: View {
                     .background(Color.gray.opacity(0.10))
                     .cornerRadius(20.0)
                     .padding()
+                    .keyboardType(.decimalPad)
                     .focused($inputIsFocused)
+                    .autocapitalization(.allCharacters)
                 
                 
                 TextField("Enter a currency" ,text: $base)
