@@ -26,9 +26,6 @@ struct ContentView: View {
                 } else if currencies.contains(currency.key)  {
                     tempList.append("\(currency.key) \(String(format: "%.2f",currency.value))")
                 }
-                
-                
-                
                 tempList.sort()
             }
             currencyList.self = tempList
@@ -51,16 +48,13 @@ struct ContentView: View {
             List {
                 ForEach(currencyList, id: \.self) { currency in
                     Text(currency)
-                    
                 }
             }
-            
             VStack {
                 Rectangle()
                     .frame(height: 8.0)
                     .foregroundColor(.blue)
                     .opacity(0.90)
-                
                 TextField("Enter an amount" ,text: $input)
                     .padding()
                     .background(Color.gray.opacity(0.10))
@@ -68,17 +62,12 @@ struct ContentView: View {
                     .padding()
                     .keyboardType(.decimalPad)
                     .focused($inputIsFocused)
-                    .autocapitalization(.allCharacters)
-                
-                
                 TextField("Enter a currency" ,text: $base)
                     .padding()
                     .background(Color.gray.opacity(0.10))
                     .cornerRadius(20.0)
                     .padding()
                     .focused($inputIsFocused)
-                
-                
                 Button("Convert!") {
                     makeRequest(showAll: true)
                     inputIsFocused = false
